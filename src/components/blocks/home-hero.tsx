@@ -15,7 +15,7 @@ export default function HomeHero() {
   return (
     <section 
       id="banner" 
-      className="py-12 px-4 sm:px-[100px] lg:px-[200px] flex flex-col md:flex-row items-center justify-between border-b-2 gap-8"
+      className="py-12 px-4 sm:px-[100px] lg:px-[200px] flex flex-col md:flex-row items-center justify-between gap-8"
     >
       <div className="flex flex-col items-center md:items-start text-center md:text-left">
         <div className="flex flex-col gap-2 px-4 md:px-0">
