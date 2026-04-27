@@ -46,6 +46,15 @@ export default function Stack() {
           {stackItems.map((item, i) => (
             <Item key={`b-${i}`} item={item} />
           ))}
+          {stackItems.map((item, i) => (
+            <Item key={`c-${i}`} item={item} />
+          ))}
+          {stackItems.map((item, i) => (
+            <Item key={`d-${i}`} item={item} />
+          ))}
+          {stackItems.map((item, i) => (
+            <Item key={`e-${i}`} item={item} />
+          ))}
         </div>
       </div>
     </div>
