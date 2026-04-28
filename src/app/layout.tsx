@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Zul Code",
+  title: "ZulCode",
   description: "A melhor forma de aprender a programar é praticando. E o Zul Code é a melhor plataforma para isso.",
 };
 
