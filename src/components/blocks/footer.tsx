@@ -7,7 +7,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
-import { FaGithub, FaInstagram, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaInstagram } from "react-icons/fa";
 
 const navLinks = [
   { name: "Home", href: "/" },
