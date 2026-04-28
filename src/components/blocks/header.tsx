@@ -57,7 +57,7 @@ export default function Header() {
         ))}
       </nav>
       <div className="h-full flex items-center gap-4">
-        <Link href="https://zul-code-landing.vercel.app/login">
+        <Link href="https://zulcode-app.vercel.app/login/">
           <Button>Entrar</Button>
         </Link>
         <ModeToggle />

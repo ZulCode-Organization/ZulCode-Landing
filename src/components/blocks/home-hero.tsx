@@ -55,10 +55,10 @@ export default function HomeHero() {
         )}
         
         <div className="flex flex-col gap-4 w-full md:hidden">
-          <Link href="https://zul-code-landing.vercel.app/login">
+          <Link href="https://zulcode-app.vercel.app/login/">
             <Button size="mobile" className="w-full">COMEÇAR AGORA</Button>
           </Link>
-          <Link href="https://zul-code-landing.vercel.app/login">
+          <Link href="https://zulcode-app.vercel.app/login/">
             <Button variant="outline" size="mobile" className="w-full">JÁ TENHO UMA CONTA</Button>
           </Link>
         </div>
