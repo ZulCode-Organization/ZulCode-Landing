@@ -31,10 +31,10 @@ export default function HomeHero() {
         </div>
         
         <div className="hidden md:flex mt-8 gap-4">
-          <Link href="https://zul-code-landing.vercel.app/login">
+          <Link href="https://zulcode-app.vercel.app/login/">
             <Button size="hero">COMEÇAR AGORA</Button>
           </Link>
-          <Link href="https://zul-code-landing.vercel.app/login">
+          <Link href="https://zulcode-app.vercel.app/login/">
             <Button variant="outline" size="hero">JÁ TENHO UMA CONTA</Button>
           </Link>
         </div>
