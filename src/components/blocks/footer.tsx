@@ -12,7 +12,6 @@ import { FaGithub, FaInstagram, FaTwitter } from "react-icons/fa";
 const navLinks = [
   { name: "Home", href: "/" },
   { name: "Metodologia", href: "/#metodologia" },
-  { name: "Cursos", href: "/#cursos" },
   { name: "Plano", href: "/#planos" },
 ];
 

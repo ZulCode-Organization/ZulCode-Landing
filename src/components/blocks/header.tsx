@@ -11,7 +11,6 @@ import { ModeToggle } from "../ui/mode-toggle";
 const navLinks = [
   { name: "Home", href: "/" },
   { name: "Metodologia", href: "/#metodologia" },
-  { name: "Cursos", href: "/#cursos" },
   { name: "Plano", href: "/#planos" },
 ]
 
