@@ -62,7 +62,7 @@ export function CardLenticular({
             className="zc-lent__tira"
             style={{ "--zc-i": i } as React.CSSProperties}
           >
-            <span className="zc-lent__face">
+            <span className="zc-lent__face zc-lent__face--frente">
               {/* --zc-i vem por herança da tira: é ele que desloca a arte. */}
               <span className="zc-lent__arte">
                 {frente}

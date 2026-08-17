@@ -322,11 +322,35 @@
     overflow: hidden;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
+    /* A troca de face acontece no meio do giro DESTA tira: 0s de duração (é
+       um corte, não um esmaecer) com atraso igual ao da varredura mais metade
+       da rotação. */
+    transition: opacity 0s linear
+      calc(var(--zc-i) * var(--zc-varredura, 28ms) + 0.22s);
+  }
+  /* Meio pixel separando as faces: coplanares, o compositor da GPU escolhe
+     qual desenhar por conta própria e às vezes mostra as duas (a frente sai
+     espelhada por cima do verso). Com a folga em Z isso deixa de existir. */
+  .zc-lent__face--frente {
+    transform: translateZ(0.5px);
   }
   /* O verso já nasce virado: quando a tira gira 180°, ele volta a 360° e o
      conteúdo aparece na posição certa, sem espelhamento. */
   .zc-lent__face--verso {
-    transform: rotateY(180deg);
+    transform: rotateY(180deg) translateZ(0.5px);
+    opacity: 0;
+  }
+  /* Além do backface-visibility, a face que ficou pra trás é apagada de vez —
+     assim nenhum truque de rasterização consegue trazê-la de volta. */
+  .zc-lent[data-virado="true"] .zc-lent__face--frente,
+  .zc-lent:hover .zc-lent__face--frente,
+  .zc-lent:focus-visible .zc-lent__face--frente {
+    opacity: 0;
+  }
+  .zc-lent[data-virado="true"] .zc-lent__face--verso,
+  .zc-lent:hover .zc-lent__face--verso,
+  .zc-lent:focus-visible .zc-lent__face--verso {
+    opacity: 1;
   }
   .zc-lent__arte {
     position: absolute;
@@ -337,6 +361,11 @@
   }
   @media (prefers-reduced-motion: reduce) {
     .zc-lent__tira {
+      transition: none;
+    }
+    /* Sem rotação, a virada é instantânea — a troca de face tem que ser no
+       mesmo instante, senão a frente fica espelhada por uma fração de segundo. */
+    .zc-lent__face {
       transition: none;
     }
   }
