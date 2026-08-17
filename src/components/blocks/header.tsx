@@ -81,7 +81,7 @@ export default function Header() {
       </nav>
 
       <div className="h-full flex items-center gap-2 sm:gap-4">
-        <Link href="https://zulcode-app.vercel.app/login/" className="hidden sm:block">
+        <Link href="https://zulcode-app.vercel.app/login" className="hidden sm:block">
           <Button className="zc-press zc-press-shadow">Entrar</Button>
         </Link>
         <ModeToggle />
@@ -123,7 +123,7 @@ export default function Header() {
             </Link>
           ))}
           <Link
-            href="https://zulcode-app.vercel.app/login/"
+            href="https://zulcode-app.vercel.app/login"
             onClick={() => setMenuAberto(false)}
             className={cn("mt-2", menuAberto && "animate-fade-in-up")}
             style={{ animationDelay: menuAberto ? `${navLinks.length * 60}ms` : undefined }}

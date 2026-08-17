@@ -41,7 +41,7 @@ const ETAPAS = [
       "Acertou, leva XP e abre a próxima fase. Errou, perde uma vida e tenta de novo — o que te obriga a pensar antes de chutar.",
     status: "XP, nível e ofensiva",
     linkTexto: "começar agora",
-    link: "https://zulcode-app.vercel.app/login/",
+    link: "https://zulcode-app.vercel.app/signup",
   },
 ];
 

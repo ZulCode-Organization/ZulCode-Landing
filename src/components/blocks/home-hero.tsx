@@ -7,7 +7,11 @@ import Device, { larguraTelaDevice } from "../react-bits/Device";
 import RotatingText from "../react-bits/RotatingText";
 import { JornadaMock } from "./jornada-mock";
 
-const APP = "https://zulcode-app.vercel.app/login/";
+/* Quem está começando vai pro cadastro; quem já tem conta, pro login. Sem a
+   barra no fim: com ela o app responde 308 e a pessoa paga um redirecionamento
+   à toa. */
+const APP_CADASTRO = "https://zulcode-app.vercel.app/signup";
+const APP_LOGIN = "https://zulcode-app.vercel.app/login";
 
 /* Escala do aparelho no hero e a largura em que a tela do app é desenhada
    (o mesmo alvo de celular do frontend) — a razão entre as duas vira o zoom
@@ -91,7 +95,7 @@ export default function HomeHero() {
             className="animate-fade-in-up mt-9 flex w-full flex-col gap-4 sm:w-auto sm:flex-row"
             style={{ animationDelay: "280ms" }}
           >
-            <Link href={APP} className="w-full sm:w-auto">
+            <Link href={APP_CADASTRO} className="w-full sm:w-auto">
               <Button
                 size="hero"
                 className="zc-press zc-press-shadow w-full sm:w-auto"
@@ -100,7 +104,7 @@ export default function HomeHero() {
                 COMEÇAR AGORA
               </Button>
             </Link>
-            <Link href={APP} className="w-full sm:w-auto">
+            <Link href={APP_LOGIN} className="w-full sm:w-auto">
               <Button variant="outline" size="hero" className="zc-press w-full sm:w-auto">
                 JÁ TENHO CONTA
               </Button>
