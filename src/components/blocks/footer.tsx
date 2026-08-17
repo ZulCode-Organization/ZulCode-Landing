@@ -5,14 +5,15 @@ import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Button } from "@/components/ui/button";
-import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
+import { useHidratado } from "@/hooks/use-hidratado";
 import { FaGithub, FaInstagram } from "react-icons/fa";
 
 const navLinks = [
-  { name: "Home", href: "/" },
+  { name: "Linguagens", href: "/#linguagens" },
+  { name: "Como funciona", href: "/#como-funciona" },
   { name: "Metodologia", href: "/#metodologia" },
-  { name: "Plano", href: "/#planos" },
+  { name: "Dúvidas", href: "/#faq" },
 ];
 
 const socialLinks = [
@@ -21,18 +22,16 @@ const socialLinks = [
 ];
 
 export default function Footer() {
-  const [mounted, setMounted] = useState(false);
   const { resolvedTheme } = useTheme();
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
+  // Mesmo cuidado do Header: só troca o esqueleto pelo logo depois da
+  // hidratação, senão as árvores do servidor e do cliente não batem.
+  const mounted = useHidratado();
   const logoSrc = resolvedTheme === "dark" ? "/logo-dark.svg" : "/logo-light.svg";
 
   return (
-    <footer className="max-w-7xl px-6 py-12 bg-background mx-auto">
-      <div className="mx-auto px-6 py-12 flex flex-col sm:flex-row justify-between gap-10">
+    <footer className="w-full border-t border-border bg-background px-6 py-12">
+      <div className="mx-auto max-w-7xl px-6 py-12 flex flex-col sm:flex-row justify-between gap-10">
         <div className="flex flex-col gap-6">
           {!mounted ? (
             <Skeleton className="h-10 w-[140px] rounded-sm" />
@@ -65,6 +64,24 @@ export default function Footer() {
             ))}
           </nav>
         </div>
+
+        <div className="flex sm:flex-col items-start gap-3">
+          <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+            Redes
+          </span>
+          <div className="flex items-center gap-3">
+            {socialLinks.map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                aria-label={link.name}
+                className="flex size-9 items-center justify-center rounded-full border border-border text-muted-foreground transition-all duration-200 hover:border-primary/40 hover:bg-primary/10 hover:text-primary"
+              >
+                {link.icon}
+              </Link>
+            ))}
+          </div>
+        </div>
       </div>
       <Separator />
       <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
@@ -75,19 +92,6 @@ export default function Footer() {
           </Link>
           . Todos os direitos reservados.
         </p>
-
-        <div className="flex items-center gap-4">
-          {socialLinks.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              aria-label={link.name}
-              className="text-muted-foreground hover:text-foreground transition-colors"
-            >
-              {link.icon}
-            </Link>
-          ))}
-        </div>
       </div>
     </footer>
   );

@@ -24,17 +24,16 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
-      lang="en"
+      lang="pt-BR"
       suppressHydrationWarning
       className={cn("h-full", "antialiased", geistSans.variable, geistMono.variable, "font-sans", inter.variable)}
     >
-      <body className="min-h-full flex flex-col">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+      {/* Fundo chapado, sem cena atrás da página: cada bloco de conteúdo tem a
+          própria superfície opaca, igual à tela de login do app. */}
+      <body className="min-h-full flex flex-col bg-background">
+        {/* Mesma configuração de tema do app (segue o sistema, com o botão de
+            tema podendo sobrescrever), pra landing e login abrirem iguais. */}
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           {children}
         </ThemeProvider>
       </body>

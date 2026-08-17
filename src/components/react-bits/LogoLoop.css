@@ -1,0 +1,148 @@
+.logoloop {
+  position: relative;
+  overflow: hidden;
+  /* Valores padrão; o componente sobrescreve pelas props via style inline. */
+  --logoloop-gap: 32px;
+  --logoloop-logoHeight: 28px;
+}
+
+.logoloop__track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  user-select: none;
+}
+
+.logoloop__list {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.logoloop__item {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: var(--logoloop-gap);
+  /* O tamanho do logo vira o font-size do item: ícones vetoriais (react-icons,
+     svg com 1em) acompanham sem precisar de classe extra. */
+  font-size: var(--logoloop-logoHeight);
+  line-height: 1;
+}
+
+.logoloop__item img {
+  display: block;
+  height: var(--logoloop-logoHeight);
+  width: auto;
+  object-fit: contain;
+}
+
+.logoloop__node,
+.logoloop__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoloop__link {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Versão vertical: mesma ideia, trocando eixo. */
+.logoloop--vertical .logoloop__track,
+.logoloop--vertical .logoloop__list {
+  flex-direction: column;
+  width: auto;
+}
+
+.logoloop--vertical .logoloop__item {
+  margin-right: 0;
+  margin-bottom: var(--logoloop-gap);
+}
+
+/* Bordas que somem. Feito com máscara em vez de um degradê colorido por cima:
+   assim vale em tema claro e escuro sem ter que casar a cor do fundo (que aqui
+   é uma faixa translúcida). Se alguém passar `fadeOutColor`, o degradê colorido
+   entra por cima, como no componente original. */
+.logoloop--fade {
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+.logoloop--vertical.logoloop--fade {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+.logoloop--fade::before,
+.logoloop--fade::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  background: none;
+}
+
+.logoloop--horizontal.logoloop--fade::before,
+.logoloop--horizontal.logoloop--fade::after {
+  top: 0;
+  bottom: 0;
+  width: clamp(24px, 8%, 120px);
+}
+
+.logoloop--horizontal.logoloop--fade::before {
+  left: 0;
+  background: linear-gradient(to right, var(--logoloop-fadeColor, transparent) 0%, transparent 100%);
+}
+
+.logoloop--horizontal.logoloop--fade::after {
+  right: 0;
+  background: linear-gradient(to left, var(--logoloop-fadeColor, transparent) 0%, transparent 100%);
+}
+
+.logoloop--vertical.logoloop--fade::before,
+.logoloop--vertical.logoloop--fade::after {
+  left: 0;
+  right: 0;
+  height: clamp(24px, 8%, 120px);
+}
+
+.logoloop--vertical.logoloop--fade::before {
+  top: 0;
+  background: linear-gradient(to bottom, var(--logoloop-fadeColor, transparent) 0%, transparent 100%);
+}
+
+.logoloop--vertical.logoloop--fade::after {
+  bottom: 0;
+  background: linear-gradient(to top, var(--logoloop-fadeColor, transparent) 0%, transparent 100%);
+}
+
+/* O root tem overflow hidden (é o que recorta o laço), então a folga pro item
+   crescer no hover precisa vir de padding — senão a escala fica cortada. */
+.logoloop--scale-hover {
+  padding-block: 8px;
+}
+
+.logoloop--scale-hover .logoloop__item .logoloop__node,
+.logoloop--scale-hover .logoloop__item img {
+  transition: transform 0.3s ease;
+}
+
+.logoloop--scale-hover .logoloop__item:hover .logoloop__node,
+.logoloop--scale-hover .logoloop__item:hover img {
+  transform: scale(1.15);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logoloop__track {
+    transform: none !important;
+  }
+  .logoloop--scale-hover .logoloop__item .logoloop__node,
+  .logoloop--scale-hover .logoloop__item img {
+    transition: none;
+  }
+}
