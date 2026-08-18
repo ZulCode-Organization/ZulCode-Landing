@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
 import { useHidratado } from "@/hooks/use-hidratado";
 import { FaGithub, FaInstagram } from "react-icons/fa";
+import { FaTiktok } from "react-icons/fa6";
 
 const navLinks = [
   { name: "Linguagens", href: "/#linguagens" },
@@ -19,6 +20,7 @@ const navLinks = [
 const socialLinks = [
   { icon: <FaGithub className="size-4" />, href: "https://github.com/ZulCode-Organization", name: "GitHub" },
   { icon: <FaInstagram className="size-4" />, href: "https://instagram.com/zulcode", name: "Instagram" },
+  { icon: <FaTiktok className="size-4" />, href: "https://www.tiktok.com/@zul-code", name: "TikTok" },
 ];
 
 export default function Footer() {
