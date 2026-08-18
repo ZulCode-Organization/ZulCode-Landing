@@ -20,7 +20,7 @@ const navLinks = [
 const socialLinks = [
   { icon: <FaGithub className="size-4" />, href: "https://github.com/ZulCode-Organization", name: "GitHub" },
   { icon: <FaInstagram className="size-4" />, href: "https://instagram.com/zulcode", name: "Instagram" },
-  { icon: <FaTiktok className="size-4" />, href: "https://www.tiktok.com/@zul-code", name: "TikTok" },
+  { icon: <FaTiktok className="size-4" />, href: "https://www.tiktok.com/@zul_code", name: "TikTok" },
 ];
 
 export default function Footer() {
