@@ -10,6 +10,9 @@ import { Button } from "../ui/button";
 import { ModeToggle } from "../ui/mode-toggle";
 import { useHidratado } from "@/hooks/use-hidratado";
 import { cn } from "@/lib/utils";
+import { APP_LOGIN } from "@/lib/links";
+import { Botao3D } from "../ui/botao-3d";
+import { BotaoPlayStore } from "./lojas";
 
 const navLinks = [
   { name: "Linguagens", href: "/#linguagens" },
@@ -81,9 +84,9 @@ export default function Header() {
       </nav>
 
       <div className="h-full flex items-center gap-2 sm:gap-4">
-        <Link href="https://zulcode-app.vercel.app/login" className="hidden sm:block">
-          <Button className="zc-press zc-press-shadow">Entrar</Button>
-        </Link>
+        <Botao3D href={APP_LOGIN} tamanho="pequeno" className="hidden sm:block">
+          Entrar
+        </Botao3D>
         <ModeToggle />
 
         <Button
@@ -122,14 +125,15 @@ export default function Header() {
               {link.name}
             </Link>
           ))}
-          <Link
-            href="https://zulcode-app.vercel.app/login"
-            onClick={() => setMenuAberto(false)}
-            className={cn("mt-2", menuAberto && "animate-fade-in-up")}
+          <div
+            className={cn("mt-3 flex flex-col gap-4", menuAberto && "animate-fade-in-up")}
             style={{ animationDelay: menuAberto ? `${navLinks.length * 60}ms` : undefined }}
           >
-            <Button className="zc-press zc-press-shadow w-full">Entrar</Button>
-          </Link>
+            <Botao3D href={APP_LOGIN} onClick={() => setMenuAberto(false)}>
+              Entrar
+            </Botao3D>
+            <BotaoPlayStore />
+          </div>
         </nav>
       </div>
     </header>

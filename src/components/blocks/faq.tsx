@@ -24,12 +24,12 @@ const PERGUNTAS = [
   {
     pergunta: "Quais linguagens estão disponíveis?",
     resposta:
-      "JavaScript, Python, React, Java, C++, HTML e CSS. São as mesmas que aparecem no terminal aqui de cima.",
+      "Python, JavaScript, TypeScript, Java, C# e Go, cada uma com a própria trilha.",
   },
   {
     pergunta: "Funciona no celular?",
     resposta:
-      "Funciona. O app foi desenhado primeiro pra tela pequena, com a trilha e a barra de navegação pensadas pro polegar.",
+      "Funciona. No Android tem o app na Play Store, e no iPhone dá pra usar pelo navegador enquanto o app da App Store não chega. A trilha e a barra de navegação foram pensadas pro polegar.",
   },
 ];
 

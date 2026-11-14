@@ -1,23 +1,13 @@
 "use client";
 
-import { FaHtml5, FaJava, FaPython, FaReact } from "react-icons/fa";
-import { FaCss3Alt } from "react-icons/fa6";
-import { IoLogoJavascript } from "react-icons/io";
-import { SiCplusplus } from "react-icons/si";
+import { CURSOS } from "@/lib/cursos";
 import { Reveal } from "../reveal";
 import LogoLoop from "../react-bits/LogoLoop";
 import { useMovimentoPermitido } from "@/hooks/use-movimento";
 import TerminalHello from "./terminal-hello";
 
-const ITENS = [
-  { nome: "JavaScript", icone: <IoLogoJavascript /> },
-  { nome: "Python", icone: <FaPython /> },
-  { nome: "React", icone: <FaReact /> },
-  { nome: "Java", icone: <FaJava /> },
-  { nome: "C++", icone: <SiCplusplus /> },
-  { nome: "HTML", icone: <FaHtml5 /> },
-  { nome: "CSS", icone: <FaCss3Alt /> },
-];
+/* As linguagens que têm trilha no app, no mesmo laço de antes. */
+const ITENS = CURSOS;
 
 /* Cada item do laço: o ícone herda o tamanho do `logoHeight` (o LogoLoop põe
    isso como font-size do item) e o nome fica com corpo próprio. */

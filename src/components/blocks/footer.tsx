@@ -9,6 +9,7 @@ import { useTheme } from "next-themes";
 import { useHidratado } from "@/hooks/use-hidratado";
 import { FaGithub, FaInstagram } from "react-icons/fa";
 import { FaTiktok } from "react-icons/fa6";
+import { Lojas } from "./lojas";
 
 const navLinks = [
   { name: "Linguagens", href: "/#linguagens" },
@@ -65,6 +66,13 @@ export default function Footer() {
               </Link>
             ))}
           </nav>
+        </div>
+
+        <div className="flex flex-col items-start gap-3">
+          <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+            Baixe o app
+          </span>
+          <Lojas tamanho="pequeno" />
         </div>
 
         <div className="flex sm:flex-col items-start gap-3">

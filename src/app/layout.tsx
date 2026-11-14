@@ -1,8 +1,10 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import { SITE_URL } from "@/lib/links";
 import { ThemeProvider } from "@/components/theme-provider";
+import { AvisoAndroid } from "@/components/blocks/aviso-android";
 
 const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
@@ -16,9 +18,34 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const DESCRICAO =
+  "Aprenda a programar de graça com lições curtas, desafios de código de verdade e uma trilha gamificada. No navegador e no app para Android.";
+
 export const metadata: Metadata = {
-  title: "ZulCode",
-  description: "A melhor forma de aprender a programar é praticando. E o Zul Code é a melhor plataforma para isso.",
+  metadataBase: new URL(SITE_URL),
+  title: { default: "ZulCode: aprenda a programar jogando", template: "%s · ZulCode" },
+  description: DESCRICAO,
+  alternates: { canonical: "/" },
+  applicationName: "ZulCode",
+  keywords: ["aprender programação", "curso de programação grátis", "Python", "JavaScript", "TypeScript", "Java", "C#", "Go"],
+  openGraph: {
+    type: "website",
+    locale: "pt_BR",
+    url: SITE_URL,
+    siteName: "ZulCode",
+    title: "ZulCode: aprenda a programar jogando",
+    description: DESCRICAO,
+    images: [{ url: "/mascot.png", alt: "O Zul, mascote do ZulCode" }],
+  },
+  twitter: { card: "summary_large_image", title: "ZulCode: aprenda a programar jogando", description: DESCRICAO, images: ["/mascot.png"] },
+  icons: { icon: "/favicon.ico", apple: "/icon-light.png" },
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f5f8fc" },
+    { media: "(prefers-color-scheme: dark)", color: "#0f1115" },
+  ],
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
@@ -35,6 +62,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             tema podendo sobrescrever), pra landing e login abrirem iguais. */}
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           {children}
+          <AvisoAndroid />
         </ThemeProvider>
       </body>
     </html>
