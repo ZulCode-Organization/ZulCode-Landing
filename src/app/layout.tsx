@@ -23,21 +23,21 @@ const DESCRICAO =
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: { default: "ZulCode: aprenda a programar jogando", template: "%s · ZulCode" },
+  title: { default: "Aprender a programar grátis, jogando | ZulCode", template: "%s | ZulCode" },
   description: DESCRICAO,
   alternates: { canonical: "/" },
   applicationName: "ZulCode",
-  keywords: ["aprender programação", "curso de programação grátis", "Python", "JavaScript", "TypeScript", "Java", "C#", "Go"],
+  keywords: ["aprender a programar", "aprender programação", "curso de programação grátis", "app para aprender programação", "Python", "JavaScript", "TypeScript", "Java", "C#", "Go"],
   openGraph: {
     type: "website",
     locale: "pt_BR",
     url: SITE_URL,
     siteName: "ZulCode",
-    title: "ZulCode: aprenda a programar jogando",
+    title: "Aprender a programar grátis, jogando | ZulCode",
     description: DESCRICAO,
     images: [{ url: "/mascot.png", alt: "O Zul, mascote do ZulCode" }],
   },
-  twitter: { card: "summary_large_image", title: "ZulCode: aprenda a programar jogando", description: DESCRICAO, images: ["/mascot.png"] },
+  twitter: { card: "summary_large_image", title: "Aprender a programar grátis, jogando | ZulCode", description: DESCRICAO, images: ["/mascot.png"] },
   icons: { icon: "/favicon.ico", apple: "/icon-light.png" },
 };
 

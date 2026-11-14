@@ -1,3 +1,7 @@
+import { JsonLd, ORGANIZACAO, faqEstruturado } from "@/components/seo/json-ld";
+import { PERGUNTAS } from "@/lib/faq";
+import { PLAY_STORE, SITE_URL } from "@/lib/links";
+import { PAGINAS_CURSOS } from "@/lib/paginas-cursos";
 import BarraViva from "@/components/blocks/barra-viva";
 import CacaAoBug from "@/components/blocks/caca-ao-bug";
 import ComoFunciona from "@/components/blocks/como-funciona";
@@ -13,9 +17,34 @@ import VerboCodigo from "@/components/blocks/verbo-codigo";
 
 /* As seções alternam o fundo chapado com faixas em `bg-secondary/40`, como a
    tela de login do app divide showcase e formulário. */
+/* O que o Google lê sobre a home: o site, o app grátis, os cursos e o FAQ. */
+const DADOS = {
+  "@context": "https://schema.org",
+  "@graph": [
+    ORGANIZACAO,
+    { "@type": "WebSite", "@id": `${SITE_URL}/#site`, url: SITE_URL, name: "ZulCode", inLanguage: "pt-BR", publisher: { "@id": `${SITE_URL}/#organizacao` } },
+    {
+      "@type": "MobileApplication",
+      name: "ZulCode",
+      operatingSystem: "Android",
+      applicationCategory: "EducationalApplication",
+      installUrl: PLAY_STORE,
+      offers: { "@type": "Offer", price: 0, priceCurrency: "BRL" },
+      publisher: { "@id": `${SITE_URL}/#organizacao` },
+    },
+    {
+      "@type": "ItemList",
+      name: "Cursos de programação grátis do ZulCode",
+      itemListElement: PAGINAS_CURSOS.map((p, i) => ({ "@type": "ListItem", position: i + 1, name: `Aprender ${p.curso}`, url: `${SITE_URL}/${p.slug}` })),
+    },
+    faqEstruturado(PERGUNTAS),
+  ],
+};
+
 export default function Home() {
   return (
     <div className="flex w-full flex-col">
+      <JsonLd dados={DADOS} />
       <HomeHero />
       <Stack />
       <VerboCodigo />

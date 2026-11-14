@@ -10,6 +10,7 @@ import { useHidratado } from "@/hooks/use-hidratado";
 import { FaGithub, FaInstagram } from "react-icons/fa";
 import { FaTiktok } from "react-icons/fa6";
 import { Lojas } from "./lojas";
+import { PAGINAS_CURSOS } from "@/lib/paginas-cursos";
 
 const navLinks = [
   { name: "Linguagens", href: "/#linguagens" },
@@ -67,6 +68,21 @@ export default function Footer() {
             ))}
           </nav>
         </div>
+
+        <nav aria-label="Cursos" className="flex flex-col items-start gap-3">
+          <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+            Cursos grátis
+          </span>
+          <ul className="flex flex-col gap-2">
+            {PAGINAS_CURSOS.map((p) => (
+              <li key={p.slug}>
+                <Link href={`/${p.slug}`} className="text-sm font-medium text-foreground transition-colors hover:text-primary">
+                  Aprender {p.curso}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
         <div className="flex flex-col items-start gap-3">
           <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">

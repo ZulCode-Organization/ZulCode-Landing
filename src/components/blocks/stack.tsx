@@ -1,6 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { CURSOS } from "@/lib/cursos";
+import { paginaPorNome } from "@/lib/paginas-cursos";
 import { Reveal } from "../reveal";
 import LogoLoop from "../react-bits/LogoLoop";
 import { useMovimentoPermitido } from "@/hooks/use-movimento";
@@ -13,14 +15,14 @@ const ITENS = CURSOS;
    isso como font-size do item) e o nome fica com corpo próprio. */
 const LOGOS = ITENS.map((item) => ({
   node: (
-    <span className="group flex cursor-default flex-col items-center gap-3">
+    <Link href={`/${paginaPorNome(item.nome)?.slug ?? ""}`} className="group flex flex-col items-center gap-3">
       <span className="text-muted-foreground transition-colors duration-200 group-hover:text-primary">
         {item.icone}
       </span>
       <span className="whitespace-nowrap text-xs font-medium text-muted-foreground transition-colors duration-200 group-hover:text-primary sm:text-sm">
         {item.nome}
       </span>
-    </span>
+    </Link>
   ),
   title: item.nome,
   ariaLabel: item.nome,
