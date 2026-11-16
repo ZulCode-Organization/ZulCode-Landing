@@ -91,9 +91,9 @@ export default function Footer() {
           <Lojas tamanho="pequeno" />
         </div>
 
-        <div className="flex sm:flex-col items-start gap-3">
+        <div className="flex flex-col items-start gap-3">
           <span className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-            Redes
+            Redes e contato
           </span>
           <div className="flex items-center gap-3">
             {socialLinks.map((link) => (
@@ -107,6 +107,12 @@ export default function Footer() {
               </Link>
             ))}
           </div>
+          <a
+            href="mailto:contato.zulcode@gmail.com"
+            className="text-sm font-medium text-foreground transition-colors hover:text-primary"
+          >
+            contato.zulcode@gmail.com
+          </a>
         </div>
       </div>
       <Separator />

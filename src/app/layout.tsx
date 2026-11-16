@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
@@ -35,9 +36,9 @@ export const metadata: Metadata = {
     siteName: "ZulCode",
     title: "Aprender a programar grátis, jogando | ZulCode",
     description: DESCRICAO,
-    images: [{ url: "/mascot.png", alt: "O Zul, mascote do ZulCode" }],
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "ZulCode: aprenda a programar jogando, de graça" }],
   },
-  twitter: { card: "summary_large_image", title: "Aprender a programar grátis, jogando | ZulCode", description: DESCRICAO, images: ["/mascot.png"] },
+  twitter: { card: "summary_large_image", title: "Aprender a programar grátis, jogando | ZulCode", description: DESCRICAO, images: ["/og.png"] },
   /* O Google usa o ícone no resultado da busca e prefere um PNG quadrado com
      lado múltiplo de 48 px: o de 192 px é o que ele pega. */
   icons: {
@@ -73,6 +74,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           {children}
           <AvisoAndroid />
         </ThemeProvider>
+        {/* Contagem de visitas da Vercel: sem cookie e sem dado pessoal. */}
+        <Analytics />
       </body>
     </html>
   );

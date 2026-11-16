@@ -29,8 +29,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: pagina.titulo,
     description: pagina.descricao,
     alternates: { canonical: url },
-    openGraph: { type: "website", locale: "pt_BR", url, siteName: "ZulCode", title: pagina.titulo, description: pagina.descricao, images: [{ url: "/mascot.png" }] },
-    twitter: { card: "summary_large_image", title: pagina.titulo, description: pagina.descricao, images: ["/mascot.png"] },
+    openGraph: { type: "website", locale: "pt_BR", url, siteName: "ZulCode", title: pagina.titulo, description: pagina.descricao, images: [{ url: "/og.png", width: 1200, height: 630 }] },
+    twitter: { card: "summary_large_image", title: pagina.titulo, description: pagina.descricao, images: ["/og.png"] },
   };
 }
 

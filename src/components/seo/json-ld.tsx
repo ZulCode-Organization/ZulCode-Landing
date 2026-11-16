@@ -20,6 +20,7 @@ export const ORGANIZACAO = {
   name: "ZulCode",
   url: SITE_URL,
   alternateName: "Zul Code",
+  email: "contato.zulcode@gmail.com",
   logo: `${SITE_URL}/icon-512.png`,
   sameAs: [
     "https://github.com/ZulCode-Organization",
