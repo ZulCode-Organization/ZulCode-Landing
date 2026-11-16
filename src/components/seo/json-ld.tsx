@@ -19,7 +19,8 @@ export const ORGANIZACAO = {
   "@id": `${SITE_URL}/#organizacao`,
   name: "ZulCode",
   url: SITE_URL,
-  logo: `${SITE_URL}/icon-light.png`,
+  alternateName: "Zul Code",
+  logo: `${SITE_URL}/icon-512.png`,
   sameAs: [
     "https://github.com/ZulCode-Organization",
     "https://instagram.com/zulcode",

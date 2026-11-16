@@ -22,7 +22,8 @@ const DADOS = {
   "@context": "https://schema.org",
   "@graph": [
     ORGANIZACAO,
-    { "@type": "WebSite", "@id": `${SITE_URL}/#site`, url: SITE_URL, name: "ZulCode", inLanguage: "pt-BR", publisher: { "@id": `${SITE_URL}/#organizacao` } },
+    // O nome que o Google mostra no lugar de "zulcode.tech" no resultado.
+    { "@type": "WebSite", "@id": `${SITE_URL}/#site`, url: `${SITE_URL}/`, name: "ZulCode", alternateName: ["Zul Code", "zulcode.tech"], inLanguage: "pt-BR", publisher: { "@id": `${SITE_URL}/#organizacao` } },
     {
       "@type": "MobileApplication",
       name: "ZulCode",

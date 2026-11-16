@@ -38,7 +38,16 @@ export const metadata: Metadata = {
     images: [{ url: "/mascot.png", alt: "O Zul, mascote do ZulCode" }],
   },
   twitter: { card: "summary_large_image", title: "Aprender a programar grátis, jogando | ZulCode", description: DESCRICAO, images: ["/mascot.png"] },
-  icons: { icon: "/favicon.ico", apple: "/icon-light.png" },
+  /* O Google usa o ícone no resultado da busca e prefere um PNG quadrado com
+     lado múltiplo de 48 px: o de 192 px é o que ele pega. */
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
+    ],
+    apple: { url: "/apple-icon.png", sizes: "180x180" },
+  },
+  manifest: "/manifest.webmanifest",
 };
 
 export const viewport: Viewport = {
