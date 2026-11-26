@@ -67,7 +67,7 @@ export default function QualquerTela() {
                 <span className="size-3 rounded-full bg-[#28c840]" />
                 <span className="ml-3 flex min-w-0 flex-1 items-center gap-1.5 truncate rounded-lg bg-muted px-3 py-1 text-xs text-muted-foreground">
                   <Lock className="size-3 shrink-0" />
-                  zulcode-app.vercel.app/home
+                  app.zulcode.tech/home
                 </span>
               </div>
               <div className="h-[430px]">
