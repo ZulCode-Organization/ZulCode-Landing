@@ -19,6 +19,9 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+/** A conta do ZulCode no AdSense (o mesmo número do AdMob). */
+const ADSENSE = "ca-pub-3421793734694346";
+
 const DESCRICAO =
   "Aprenda a programar de graça com lições curtas, desafios de código de verdade e uma trilha gamificada. No navegador e no app para Android.";
 
@@ -49,6 +52,9 @@ export const metadata: Metadata = {
     apple: { url: "/apple-icon.png", sizes: "180x180" },
   },
   manifest: "/manifest.webmanifest",
+  // A conta do AdSense: prova ao Google que o zulcode.tech (e o app em
+  // app.zulcode.tech) é do ZulCode. O ads.txt em public/ diz o mesmo.
+  other: { "google-adsense-account": ADSENSE },
 };
 
 export const viewport: Viewport = {
@@ -65,6 +71,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       suppressHydrationWarning
       className={cn("h-full", "antialiased", geistSans.variable, geistMono.variable, "font-sans", inter.variable)}
     >
+      <head>
+        {/* O código do AdSense, do jeito que o Google pede (script comum no
+            head; o next/script põe atributos que o AdSense estranha). */}
+        <script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE}`} crossOrigin="anonymous" />
+      </head>
       {/* Fundo chapado, sem cena atrás da página: cada bloco de conteúdo tem a
           própria superfície opaca, igual à tela de login do app. */}
       <body className="min-h-full flex flex-col bg-background">
